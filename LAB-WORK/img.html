@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img id="mg" src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"alt="" height="300px"  width="300px" style="display: none;">
+    
+    <button onclick="show()">show</button>
+    <button onclick="chenge()">chenge</button>
+    <button onclick="showchenge()">show chenge</button>
+    <script>
+        function show()
+        {
+            var x=document.getElementById('mg');
+             x.style.display="block";
+        }
+        function chenge()
+        {
+            var x=document.getElementById('mg');
+             x.src="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/128413/scorpio-exterior-right-front-three-quarter-46.jpeg?isig=0&q=75";
+        }
+        // function showchenge()
+        // {
+        //     var x=document.getElementById('mg');
+           
+        //     if (x.src=="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
+        //     {
+        //         x.src="https://imgd-ct.aeplcdn.com/370x208/n/cw/ec/128413/scorpio-exterior-right-front-three-quarter-46.jpeg?isig=0&q=75";
+        //     }
+        //     else{
+        //         x.src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80";
+        //     }
+        // }
+
+        function showchenge()
+        {
+            var x=document.getElementById('mg');
+           
+            if (x.src.match("2.avif"))
+            {
+                x.src="1.webp";
+            }
+            else{
+                x.src="2.avif";
+            }
+        }
+        
+    </script>
+    <!-- <img src="2.avif" alt=""> -->
+</body>
+</html>

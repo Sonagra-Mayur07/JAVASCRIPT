@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        Name: <input type="text" id="nam" onblur="mj(nam,err)">
+        <span id="err"></span><br><br>
+
+        Email: <input type="email" id="emi" onblur="mj(emi,Eerr)">
+
+        <span id="Eerr"></span><br><br>
+
+        phone: <input type="tel" id="pn" onblur="mj(pn,perr)">
+
+        <span id="perr"></span><br><br>
+
+        <script>
+
+          function mj(m,m1)
+        {
+            console.log(m);
+            console.log(m.value);
+            console.log(m1);
+            console.log(m1.innerHTML);
+
+            if(m.value =='')
+            {
+                m1.innerHTML ="*Required...!";
+            } 
+            else 
+            {
+                m1.innerHTML="";
+            }
+            
+        }
+    </script>
+
+    </body>
+</html>

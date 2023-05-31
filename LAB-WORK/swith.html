@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <input type="text" id="fat">
+
+        <input type="text" id="sad">
+
+        <select name id="so" onchange="calc()">
+            <option>--Select Operator--</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="/">%</option>
+        </select>
+
+        <input type="text" id="inp">
+
+        <button onclick="reset()">Reset</button>
+
+        <script>
+
+      vai1 = document.getElementById('fat');
+
+      vai2 = document.getElementById('sad');
+
+    //   ope = document.getElementById("so");
+
+      total = "";
+
+      var vai3 = document.getElementById('inp');
+
+
+      function calc() {
+
+      switch (so.value) {
+        case '+':
+        total = Number(vai1.value) + Number(vai2.value);
+            break;
+
+            case '-':
+        total = Number(vai1.value) - Number(vai2.value);
+            break;
+
+            case '*':
+        total = Number(vai1.value) * Number(vai2.value);
+            break;
+
+            case '/':
+        total = Number(vai1.value) / Number(vai2.value);
+            break;
+
+            case '%':
+        total = Number(vai1.value) % Number(vai2.value);
+            break;
+      
+         default:
+             document.write("Invalid Input");   
+      }
+
+      vai3.value = total;
+
+    }
+
+    function reset() {
+
+     vai1.value="";
+     vai2.value="";
+     total.value="";
+     so.value="";
+     vai3.value="";
+
+}
+
+    </script>
+
+    </body>
+</html>
