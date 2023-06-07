@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="x" class="x">heading 1</h1>
+    <h1 id="x" class="x">heading 2</h1>
+    <h1 id="x" class="x">heading 3</h1>
+    <h1 id="x" class="x">heading 4</h1>
+    <h1 id="x" class="x">heading 5</h1>
+
+
+    <input type="text" id="x" class="x">
+    <input type="text" id="x" class="x">
+
+    <script>
+        // tags = document.getElementById('x');
+        tags = document.getElementsByClassName('x');
+
+        console.log(tags);
+        console.log(tags.length)
+
+        tags[0].style.border ="3px solid red";
+
+        for(i=0;i<tags.length;i++)
+        {
+            tags[i].style.border ="3px solid red";
+            tags[i].style.background = " aqua";
+        }
+    </script>
+
+</body>
+</html>
