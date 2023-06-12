@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main 
+        {
+            background: lightblue;
+            /* text-align: center;
+            vertical-align: center; */
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+
+            display: grid;
+            /* justify-content: center;
+            align-content: center; */
+
+            place-items: center;
+            height: 100vh;
+        }
+
+        .clc 
+        {
+            background:lightseagreen;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+
+        input 
+        {
+            grid-column: span 4;
+            height: 40px;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: cursive;
+            border: none;
+            outline: none;
+            
+        }
+
+        /* input:focus 
+        {
+            
+        } */
+
+        .number
+        {
+            background:lightblue;
+            margin: 20px;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 18x;
+            font-weight: bold;
+            font-family: cursive;
+
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div  class="main">
+        <div class="clc">
+        <input type="text">
+
+        <div class="number">DEL</div>
+        <div class="number">AC</div>
+        <div class="number">%</div>
+        <div class="number">/</div>
+
+        <div class="number">7</div>
+        <div class="number">8</div>
+        <div class="number">9</div>
+        <div class="number">*</div>
+
+        <div class="number">4</div>
+        <div class="number">5</div>
+        <div class="number">6</div>
+        <div class="number">+</div>
+
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">-</div>
+
+        <div class="number">0</div>
+        <div class="number">=</div>
+
+    </div>
+       
+    </div>
+
+    <script>
+        
+    </script>
+
+</body>
+</html>

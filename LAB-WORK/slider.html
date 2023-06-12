@@ -3,43 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div {
+        .main {
             overflow: hidden;
-            border: 1px solid black;
-            height: 90%;
-            width: 90%;
+            border: 2px solid black;
+            height: 600px;
+            width: 60%;
             margin: auto;
         }
 
         img {
-            height: 100%;
+            height: 600px;
             width: 100%;
-        }
-
-        .xyz {
-            animation: scaleMe 5s;
-        }
-
-        @keyframes scaleMe {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(2.5);
-            }
         }
     </style>
 </head>
 
 <body>
 
-    <div>
-
+    <div class="main">
         <img src="https://hips.hearstapps.com/hmg-prod/images/2024-lamborghini-revuelto-127-641a1d518802b.jpg?crop=0.769xw:0.770xh;0.104xw,0.106xh&resize=1200:*"
             alt="" class="x">
 
@@ -51,66 +35,29 @@
 
         <img src="https://img.freepik.com/free-photo/yellow-car-with-number-70-side_1340-23401.jpg?w=1380&t=st=1686116145~exp=1686116745~hmac=c1d729348183b648f6391e93fe3d06216bddc039fd9695c3d30b51a8bd70bb19"
             alt="" class="x">
-
     </div>
 
     <script>
-
         index = 0;
+
         function slider() {
+
             img_arr = document.getElementsByClassName("x");
-            console.log(img_arr);
-
-            let i;
-         for (i = 0; i < img_arr.length; i++);
-            {
-                img_arr[i].style.display = "none";
-            }
-
-            img_arr[index].style.display = "block";
-            img_arr[index].classList.add('xyz');
-            index++;
-
-
-            if (index == 4) {
-                index = 0;
-            }
-
-            setTimeout("slider()", 1000);
-        }
-        slider()
-
-    </script>
-
-    <script>
-
-        index = 0;
-        function slider() {
-            img_arr = document.getElementsByClassName("x");
-            console.log(img_arr);
-
 
             let i;
             for (i = 0; i < img_arr.length; i++) {
                 img_arr[i].style.display = "none";
 
             }
-            
             img_arr[index].style.display = "block";
-            img_arr[index].classList.add('xyz');
             index++;
 
             if (index == 4) {
                 index = 0;
             }
-
-            setTimeout("slider()", 1000);
-
+            setTimeout("slider()", 2000);
         }
-
         slider()
-
-
     </script>
 
 </body>
