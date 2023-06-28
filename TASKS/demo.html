@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+body{background: #333; font-family: poppins;}
+.container{ margin-top: 20px;}
+
+.fltr{filter: url("#gooey");-webkit-filter: url("#gooey");-moz-filter: url("#gooey");  margin-top: 30px;     left: 50%;
+    position: absolute;
+    transform: translateX(-50%);}
+
+.page-list{margin: 0; border-radius: 30px; display: inline-block; padding: 0px 0px; position: relative; z-index: 2;}
+.page-list li{background: #fff;border-radius: 50%;margin: 0px 15px; counter-increment: list;cursor: pointer; position: relative;z-index: 2;width: 41px; height: 41px; line-height: 41px; display: inline-block; text-align: center; color: #111;    font-size: 20px;}
+.page-list li:after{content: "";content: counter(list);}
+
+.from-move{content: "";position: absolute; left: 7px; top: -7px; border-radius: 50%; z-index: 1;width: 55px; height: 55px;  display: inline-block; transition: all 0.5s ease;background: #ffffff;}
+
+.svg-flt{position: absolute;}
+
+.from-move.animate{animation: page-move 0.5s ease 0s forwards;}
+@keyframes page-move {
+	0%{ transform: scale(1,1);} 
+	20%{ transform: scale(1,0.5);} 
+	40%{ transform: scale(1,0.5);} 
+	100%{ transform: scale(1,1);} 
+}
+
+li.animate-right{animation: li-move-right 0.7s ease 0s forwards;}
+@keyframes li-move-right {
+	0%{ transform: translateX(0px);} 
+	20%{ transform: translateX(20px);} 
+	40%{ transform: translateX(-10px);} 
+	60%{ transform: translateX(5px);} 
+	80%{ transform: translateX(0px);} 
+	100%{ transform: translateX(0px);} 
+}
+li.animate-left{animation: li-move-left 0.7s ease 0s forwards;}
+@keyframes li-move-left {
+	0%{ transform: translateX(0px);} 
+	20%{ transform: translateX(-20px);} 
+	40%{ transform: translateX(10px);} 
+	60%{ transform: translateX(-5px);} 
+	80%{ transform: translateX(0px);} 
+	100%{ transform: translateX(0px);} 
+}
+
+
+
+
+
+
+
+
+
+.primaryText{
+	font-weight: 300;
+	font-size: 50px;
+	text-shadow: 2px 2px 1px rgba(0,0,0,0.3);
+}
+.secondaryText{
+	font-weight: 300;
+	font-size: 25px;
+}
+.createdBy {
+    font-weight: 300;
+    font-size: 17px;
+    margin-top: 10px;
+}
+.createdBy a{
+    color: #333;
+    font-weight: 500;
+}
+.message {
+    background: rgba(255, 255, 255, 0.31);
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    color: #000;
+    margin: 25px 0;
+    font-size: 13px;
+    box-shadow: 2px 2px 0px 1px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+.projHeader{
+	text-align: center;
+}
+.projHeader, .createdBy a, .message{color: #fff;}
+.message{background: rgba(255, 255, 255, 0.1);}
+  </style>
+</head>
+<body>
+  <div class="demoContainer">
+    <div class="projHeader">
+      <div class="primaryText">Gooey Pagination in SVG</div>
+      <div class="createdBy">Created By <a href="http://www.dropinks.com/gooey-effect-in-pagination">Dropinks</a></div>
+      <p class="message">For Better usability and interaction use web browsers - chrome, firefox</p>
+    </div>
+  
+  
+  
+  <div class="fltr">
+    <span class="from-move" id="from-move"></span>
+    <ul class="page-list" id="page-list">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  
+  
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-flt">
+    <defs>
+      <filter id="gooey">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+      </filter>
+    </defs>
+  </svg>
+  
+  <script>
+    $(".page-list li").click(function(){
+	var delay = 0.05, init=1;
+	var li_ind = $(this).index();
+	var li_ind_prev = $(".active").index();
+	var li_length = $(this).length;
+	var li_diff = li_ind - $(".active").index();
+	var dur = Math.abs(li_diff)
+	var left_pos = $(this).position().left+7;
+	$("#from-move").css({"left":left_pos});
+	
+	if(li_diff>0){
+		for(i = li_ind_prev; i<li_ind;i++){
+			dur = delay*init;
+			$("#page-list").find("li").eq(i).addClass("animate-right").css({"animation-delay":dur+"s"});
+			init = init+1;
+		}
+	}
+	else{
+		for(i = li_ind_prev; i>li_ind;i--){
+			dur = delay*init;
+			$("#page-list").find("li").eq(i).addClass("animate-left").css({"animation-delay":dur+"s"});
+			init = init+1;
+		}
+	}
+	$("#from-move").addClass("animate");
+
+	$("#page-list li").removeClass("active");
+	$(this).addClass("active");
+
+	$("#from-move").bind("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function(){
+		$("#from-move").removeClass("animate");
+		$("#from-move").unbind("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend");
+	});
+	$(".page-list li").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+		$(".page-list li").removeClass("animate-right").removeAttr("style");
+		$(".page-list li").removeClass("animate-left").removeAttr("style");
+		$("#page-list li").unbind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd");
+	});
+
+})
+  </script>
+  
+</body>
+</html>
