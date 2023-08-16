@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const student =
+        {
+            name: "Mayur",
+            age:19,
+            phy: 78,
+            chem: 80,
+            met: 75,
+            eng: 80,
+            comp: 45,
+            test: function () {
+                var total = this.phy + this.chem + this.met + this.eng + this.comp;
+                return `Name:- ${this.name} <br/> <br/> Total is :- ${total}`;
+
+            },
+            result: function () {
+                var total = this.phy + this.chem + this.met + this.eng + this.comp;
+
+                return "<br/>" + "Percentages is :-  " + total / 5 % 100 + "%";
+            }
+
+
+        }
+
+        document.write(student.test())
+        document.write(student.result())
+    </script>
+</body>
+
+</html>
